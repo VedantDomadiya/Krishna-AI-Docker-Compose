@@ -1,0 +1,25 @@
+#!/bin/bash
+# Update system packages
+apt-get update -y
+apt-get upgrade -y
+
+# Install Docker
+apt-get install -y docker.io
+
+# Enable and start Docker
+systemctl enable docker
+systemctl start docker
+
+# Install Docker Compose (latest v2.x release)
+curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+# Clone your GitHub repo (replace with your actual repo URL if different)
+git clone https://github.com/VedantDomadiya/Krishna-AI-Docker-Compose.git /home/ubuntu/krishna-ai
+
+# Change directory to repo
+cd /home/ubuntu/krishna-ai
+
+# Run Docker Compose
+docker-compose up -d
