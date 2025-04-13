@@ -2,10 +2,7 @@ version: '3.8'
 
 services:
   krishna-ai-web:
-    image: vedantdomadiya/krishna_ai:latest # Replace with your Docker Hub username and desired tag
-    container_name: krishna-ai-web-container
+    image: vedantdomadiya/krishna_ai:latest
     ports:
-      - "80:80" # Map host port 80 to container port 80
-    volumes:
-      - ./Krishna-AI:/usr/local/apache2/htdocs/ # Optional: Mount local code for development (remove for production push)
-    restart: always
+      - "8005:8005"
+    container_name: krishna_ai_container
